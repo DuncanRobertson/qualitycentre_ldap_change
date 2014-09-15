@@ -9,7 +9,9 @@ except:
    sys.exit(1)
 
 update_database = False
-update_database = not config.get("qcdatabase","dryrun")
+
+if config.getboolean("qcdatabase","dryrun") == False:
+   update_database = True
 
 print "update_database is ",update_database
 
